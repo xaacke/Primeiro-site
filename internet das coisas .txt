@@ -1,0 +1,70 @@
+Curiosidades de Tecnologia
+
+Tudo aquilo que você sempre quis saber sobre o mundo Tech, em um único lugar
+
+[MENU]
+Home
+Notícias
+Curiosidades
+Fale Conosco
+
+IOT - A Internet das Coisas
+
+A “Internet das Coisas” se refere a uma revolução tecnológica que tem como objetivo conectar os itens usados do dia a dia à rede mundial de computadores. Cada vez mais surgem eletrodomésticos, meios de transporte e até mesmo tênis, roupas e maçanetas conectadas à Internet e a outros dispositivos, como computadores e smartphones.
+
+Como Surgiu
+
+A ideia de conectar objetos é discutida desde 1991, quando a conexão TCP/IP e a Internet que conhecemos hoje começou a se popularizar. Bill Joy, cofundador da Sun Microsystems, pensou sobre a conexão de Device para Device (D2D), tipo de ligação que faz parte de um conceito maior, o de “várias webs”.
+
+[FOTO]
+
+
+Em 1999, Kevin Ashton do MIT propôs o termo “Internet das Coisas" e dez anos depois escreveu o artigo “A Coisa da Internet das Coisas” para o RFID Journal. 
+
+
+Aplicações da Internet das Coisas
+
+
+Já é possível ver aplicações práticas da internet das coisas na organização do trânsito, na agilização de tratamentos médicos e também na preservação do meio ambiente., sempre condicionada à capacidade humana de analisar os dados que os dispositivos conectados geram.
+
+[FOTO]
+
+
+Para o especialista em IoT, Braulio Carvalho, CEO de uma empresa de aplicações no ramo de “Internet das Coisas”, as tecnologias aplicadas em cidades inteligentes aumentam a segurança dos passageiros, permitem otimizar viagens, melhoram a qualidade do transporte e propõem melhorias de tráfego para que o trajeto seja mais confortável e rápido.
+
+[FOTO]
+
+
+E, mesmo que você acredite que isso esteja longe da sua realidade, a “Internet das Coisas” já está presente dentro da sua casa. A TV é um exemplo disso quando deixou de ser apenas um aparelho que exibe  sua programação preferida. Hoje, elas são as SmartTV’s que conhecemos, com conexão wi-fi, bluetooth, capaz de realizar tarefas por comando de voz e exibir programas por meio de aplicativos streaming, o que permite acessar conteúdos pela internet em tempo real sem a necessidade de download.
+
+[VIDEO]
+
+
+ 
+[EXTRA] Quer aprender mais? 
+
+Esses são alguns exemplos onde a internet das coisas está presente no dia-a-dia
+
+1.5 - Cupcake
+1.6 - Donut
+3.0 - Eclair
+2.2 - Froyo
+2.3 - Gingerbread
+3.0 - Honeycomb
+4.0 - Ice Cream Sandwich
+4.1 - Jelly Bean
+4.4 - KitKat
+5.0 - Lolipop
+6.0 - Marshmallow
+7.0 - Nougat
+8.0 - Oreo
+9.0 - Pie
+
+Infelizmente, o Android Q não existiu, pois o Google resolveu pôr fim a essa divertida prática e começou a usar numerações, o que deu origem ao Android 10.
+
+Acesse aqui o site Android History para conhecer a sequência das versões "adocicadas" e o que cada uma trouxe para o sistema Android.
+[/EXTRA]
+
+Então é isso! Espero que você tenha gostado do nosso artigo com essa curiosidade sobre o sistema Android e seu simpático mascote.
+         
+Site criado por Gustavo Guanabara para o CursoemVideo.
