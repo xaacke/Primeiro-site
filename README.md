@@ -4,7 +4,7 @@
 # Sobre o projeto
 https://xaacke.github.io/Primeiro-site/index.html
 
-O site sobre internet das coisas foi feito com base nas aulas do curso do professor Gustavo Guanabara, com foco na semântica e na responsividade utilizando apenas os recursos do HTML5 e CSS3.
+O site sobre internet das coisas foi feito com base nas aulas do curso do professor Gustavo Guanabara, com foco na semântica e na responsividade utilizando apenas os recursos do HTML5 e CSS3. 
 
 
 # Tecnologias utilizadas
