@@ -1,0 +1,35 @@
+@startuml sequencia-legado
+title Diagrama de Sequência — Fluxo de Navegação (Sistema Legado)
+
+skinparam sequenceArrowColor #0093a3
+skinparam sequenceLifeLineBorderColor #0093a3
+skinparam sequenceParticipantBackgroundColor #F2F2F2
+skinparam sequenceParticipantBorderColor #0093a3
+skinparam titleFontSize 16
+
+actor Usuario
+participant "Navegador" as Browser
+participant "index.html" as HTML
+participant "style.css" as CSS
+participant "Imagens/Fontes" as Assets
+
+Usuario -> Browser : digita a URL do site
+Browser -> HTML : requisição GET /index.html
+HTML --> Browser : retorna estrutura HTML
+
+Browser -> CSS : requisição GET /estilo/style.css
+CSS --> Browser : retorna estilos
+
+Browser -> Assets : requisição GET /imagens/*
+Assets --> Browser : retorna imagens e fontes
+
+Browser -> Browser : renderiza a página completa
+Browser --> Usuario : exibe o site
+
+note over Usuario, Assets
+  Não há interação com servidor,
+  banco de dados ou autenticação.
+  Todo o conteúdo é estático.
+end note
+
+@enduml
