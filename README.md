@@ -32,6 +32,12 @@ Este repositório segue o modelo **GitFlow** de gerenciamento de configuração:
 | `develop` | Branch de integração. Todo o trabalho do trio passa por aqui antes de ir ao `main` |
 | `feature/*` | Branches individuais para cada funcionalidade nova |
 
+## Regras de contribuição
+
+- Nenhuma branch envia código direto para `develop`
+- Todo trabalho passa por **Pull Request**
+- É necessária **1 aprovação** antes do merge
+
 ## Como acessar o sistema legado original
 
 O estado original do site (antes da reengenharia) está preservado pela tag `v0.0-legado`.

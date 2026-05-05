@@ -1,0 +1,63 @@
+@startuml classes-legado
+title Diagrama de Classes — Sistema Legado (Primeiro-site)
+
+skinparam classBackgroundColor #F2F2F2
+skinparam classBorderColor #0093a3
+skinparam arrowColor #0093a3
+skinparam titleFontSize 16
+
+note as N1
+  Sistema legado: site estático HTML/CSS
+  Sem orientação a objetos.
+  Componentes representados como classes
+  para fins de engenharia reversa.
+  (Chikofsky e Cross, 1990)
+end note
+
+class Pagina {
+  +titulo: String
+  +favicon: String
+  +idioma: String
+  +renderizar()
+}
+
+class Header {
+  +titulo: String
+  +subtitulo: String
+}
+
+class Nav {
+  +links: String[]
+}
+
+class Artigo {
+  +titulo: String
+  +conteudo: String
+  +imagens: String[]
+  +video: String
+}
+
+class Aside {
+  +titulo: String
+  +listaLinks: String[]
+}
+
+class Footer {
+  +autora: String
+  +linkInstagram: String
+}
+
+class Estilo {
+  +cores: Map
+  +fontes: Map
+  +aplicarEstilo()
+}
+
+Pagina "1" *-- "1" Header
+Pagina "1" *-- "1" Nav
+Pagina "1" *-- "1" Artigo
+Pagina "1" *-- "1" Footer
+Artigo "1" *-- "1" Aside
+Pagina "1" ..> "1" Estilo : usa
+
+@enduml
