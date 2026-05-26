@@ -1,0 +1,56 @@
+@startuml sequencia-login
+title Diagrama de Sequência — Cadastro e Login (Cliente e Administrador)
+
+skinparam sequenceArrowColor #0093a3
+skinparam sequenceLifeLineBorderColor #0093a3
+skinparam sequenceParticipantBackgroundColor #F2F2F2
+skinparam sequenceParticipantBorderColor #0093a3
+skinparam titleFontSize 16
+
+actor "Usuário" as U
+participant "LoginPage\n(React)" as LP
+participant "AuthService" as AS
+participant "Supabase Auth" as SA
+database "PostgreSQL\n(Supabase)" as DB
+
+== Cadastro de Cliente ==
+
+U -> LP : preenche formulário\n(nome, email, senha)
+LP -> AS : cadastrar(email, senha, nome)
+AS -> SA : signUp(email, senha)
+SA -> DB : INSERT INTO usuarios\n(nome, email, role='cliente')
+DB --> SA : usuário criado
+SA --> AS : sessão + JWT token
+AS --> LP : sucesso
+LP --> U : redireciona para HomePage
+
+== Login de Cliente ==
+
+U -> LP : informa email e senha
+LP -> AS : login(email, senha)
+AS -> SA : signIn(email, senha)
+SA -> DB : SELECT * FROM usuarios WHERE email
+DB --> SA : dados do usuário (role='cliente')
+SA --> AS : JWT token + role
+AS --> LP : role = cliente
+LP --> U : redireciona para ShopPage / HomePage
+
+== Login de Administrador ==
+
+U -> LP : informa email e senha
+LP -> AS : login(email, senha)
+AS -> SA : signIn(email, senha)
+SA -> DB : SELECT * FROM usuarios WHERE email
+DB --> SA : dados do usuário (role='admin')
+SA --> AS : JWT token + role
+AS --> LP : role = admin
+LP --> U : redireciona para AdminDashboard
+
+note over U, DB
+  JWT armazenado no cliente (localStorage).
+  Todas as requisições subsequentes incluem o token no header.
+  Supabase valida o token e aplica Row Level Security (RLS)
+  por role a cada requisição.
+end note
+
+@enduml

@@ -1,0 +1,64 @@
+@startuml sequencia-shop
+title Diagrama de Sequência — Loja (Catálogo, Carrinho e Checkout)
+
+skinparam sequenceArrowColor #0093a3
+skinparam sequenceLifeLineBorderColor #0093a3
+skinparam sequenceParticipantBackgroundColor #F2F2F2
+skinparam sequenceParticipantBorderColor #0093a3
+skinparam titleFontSize 16
+
+actor "Cliente\n(autenticado)" as C
+participant "ShopPage\n(React)" as SP
+participant "CartPage\n(React)" as CP
+participant "CheckoutPage\n(React)" as CKP
+participant "ProductService" as PS
+participant "CartService" as CS
+participant "OrderService" as OS
+database "PostgreSQL\n(Supabase)" as DB
+
+== Navegação no catálogo ==
+
+C -> SP : acessa /shop
+SP -> PS : listarProdutos()
+PS -> DB : SELECT * FROM produtos\nWHERE estoque > 0
+DB --> PS : lista de produtos
+PS --> SP : produtos[]
+SP --> C : exibe catálogo\n(mouse, teclado, monitor...)
+
+== Adicionar produto ao carrinho ==
+
+C -> SP : clica "Adicionar ao carrinho"
+SP -> CS : adicionarItem(produtoId, quantidade)
+CS -> DB : INSERT INTO itens_carrinho\n(carrinho_id, produto_id, quantidade)
+DB --> CS : item adicionado
+CS --> SP : carrinho atualizado
+SP --> C : badge do carrinho atualizado
+
+== Visualizar carrinho ==
+
+C -> CP : acessa /carrinho
+CP -> CS : listarItens(usuarioId)
+CS -> DB : SELECT itens_carrinho\nJOIN produtos
+DB --> CS : itens com preços e imagens
+CS --> CP : itens[] + total calculado
+CP --> C : exibe resumo do carrinho
+
+== Checkout e conclusão de compra ==
+
+C -> CKP : clica "Finalizar compra"
+CKP -> OS : criarPedido(carrinhoId)
+OS -> DB : INSERT INTO pedidos\n(usuario_id, total, status='pendente')
+OS -> DB : INSERT INTO itens_pedido\n(pedido_id, produto_id, qtd, preco)
+OS -> DB : UPDATE produtos\nSET estoque = estoque - quantidade
+OS -> DB : DELETE FROM itens_carrinho\nWHERE carrinho_id
+DB --> OS : pedido confirmado
+OS --> CKP : pedido criado com id
+CKP --> C : exibe confirmação\n+ número do pedido
+
+note over C, DB
+  Somente usuários com role='cliente' autenticados
+  podem adicionar ao carrinho e finalizar compra.
+  O estoque é decrementado atomicamente na conclusão.
+end note
+
+@enduml

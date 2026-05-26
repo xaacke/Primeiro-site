@@ -1,0 +1,173 @@
+@startuml classes-modernizado
+title Diagrama de Classes — Sistema Modernizado
+
+skinparam classBackgroundColor #F2F2F2
+skinparam classBorderColor #0093a3
+skinparam arrowColor #0093a3
+skinparam packageBorderColor #0093a3
+skinparam packageBackgroundColor #FAFAFA
+skinparam titleFontSize 16
+
+package "Entidades do Banco (Supabase / PostgreSQL)" {
+
+  class Usuario {
+    +id: UUID
+    +nome: String
+    +email: String
+    +senha_hash: String
+    +role: Enum {cliente, admin}
+    +created_at: Timestamp
+  }
+
+  class Produto {
+    +id: UUID
+    +nome: String
+    +descricao: String
+    +preco: Decimal
+    +estoque: Integer
+    +categoria: String
+    +imagem_url: String
+    +created_at: Timestamp
+  }
+
+  class Carrinho {
+    +id: UUID
+    +usuario_id: UUID
+    +created_at: Timestamp
+  }
+
+  class ItemCarrinho {
+    +id: UUID
+    +carrinho_id: UUID
+    +produto_id: UUID
+    +quantidade: Integer
+  }
+
+  class Pedido {
+    +id: UUID
+    +usuario_id: UUID
+    +total: Decimal
+    +status: Enum {pendente, pago, enviado, cancelado}
+    +created_at: Timestamp
+  }
+
+  class ItemPedido {
+    +id: UUID
+    +pedido_id: UUID
+    +produto_id: UUID
+    +quantidade: Integer
+    +preco_unitario: Decimal
+  }
+
+  class Artigo {
+    +id: UUID
+    +titulo: String
+    +conteudo: String
+    +categoria: String
+    +autor: String
+    +imagem_url: String
+    +created_at: Timestamp
+  }
+}
+
+package "Serviços (Services)" {
+
+  class AuthService {
+    +cadastrar(email, senha, nome): Usuario
+    +login(email, senha): Token
+    +logout(): void
+    +getUsuarioAtual(): Usuario
+  }
+
+  class ProductService {
+    +listarProdutos(): Produto[]
+    +buscarProduto(id): Produto
+    +cadastrarProduto(dados): Produto
+    +atualizarEstoque(id, qtd): void
+    +excluirProduto(id): void
+  }
+
+  class CartService {
+    +adicionarItem(produtoId, qtd): void
+    +removerItem(itemId): void
+    +listarItens(): ItemCarrinho[]
+    +calcularTotal(): Decimal
+    +limparCarrinho(): void
+  }
+
+  class OrderService {
+    +criarPedido(carrinhoId): Pedido
+    +listarPedidos(usuarioId): Pedido[]
+    +atualizarStatus(pedidoId, status): void
+  }
+}
+
+package "Componentes React (UI)" {
+
+  class App {
+    +render()
+  }
+
+  class Header {
+    +usuarioLogado: Boolean
+    +render()
+  }
+
+  class BlogPage {
+    +artigos: Artigo[]
+    +render()
+  }
+
+  class ShopPage {
+    +produtos: Produto[]
+    +render()
+  }
+
+  class CartPage {
+    +itens: ItemCarrinho[]
+    +total: Decimal
+    +render()
+  }
+
+  class CheckoutPage {
+    +pedido: Pedido
+    +render()
+  }
+
+  class LoginPage {
+    +modo: Enum {login, cadastro}
+    +render()
+  }
+
+  class AdminDashboard {
+    +render()
+  }
+}
+
+' Relacionamentos entre entidades
+Usuario "1" -- "0..1" Carrinho : possui
+Carrinho "1" *-- "0..*" ItemCarrinho : contém
+ItemCarrinho "0..*" --> "1" Produto : referencia
+Usuario "1" -- "0..*" Pedido : realiza
+Pedido "1" *-- "1..*" ItemPedido : contém
+ItemPedido "0..*" --> "1" Produto : referencia
+
+' Componentes usam serviços
+LoginPage ..> AuthService : usa
+ShopPage ..> ProductService : usa
+CartPage ..> CartService : usa
+CheckoutPage ..> OrderService : usa
+AdminDashboard ..> ProductService : usa
+AdminDashboard ..> OrderService : usa
+BlogPage ..> Artigo : exibe
+
+' Hierarquia de componentes
+App *-- Header
+App *-- BlogPage
+App *-- ShopPage
+App *-- CartPage
+App *-- CheckoutPage
+App *-- LoginPage
+App *-- AdminDashboard
+
+@enduml
