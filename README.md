@@ -28,7 +28,7 @@ O projeto aplica o ciclo completo de reengenharia de software sobre um sistema l
 | 01 | Setup e Governança | ✅ Concluído |
 | 02 | Engenharia Reversa | ✅ Concluído |
 | 03 | Plano de Reengenharia | ✅ Concluído |
-| 04 | V&V e Testagem | 🔜 Em breve |
+| 04 | V&V e Testagem | ✅ Concluído |
 | 05 | Esteira de DevOps | 🔜 Em breve |
 | 06 | Integração e Defesa | 🔜 Em breve |
 
@@ -110,6 +110,44 @@ git checkout develop
 | Diagrama de Sequência — Login | `docs/diagramas/sequencia-login.puml` |
 | Diagrama de Sequência — Loja | `docs/diagramas/sequencia-shop.puml` |
 | Plano de Reengenharia | `docs/plano-reengenharia.md` |
+
+---
+
+## Testes (Checkpoint 04 — V&V)
+
+A bateria de testes cobre contextos, serviços e páginas da aplicação, organizada em três camadas seguindo a Pirâmide de Testes.
+
+**Ferramentas:** Vitest · @testing-library/react · @testing-library/jest-dom · jsdom · @vitest/coverage-v8
+
+### Executar os testes
+
+```bash
+cd app
+npm run test -- --run
+```
+
+Resultado esperado: **56 testes passando, 0 falhas**, distribuídos em 10 arquivos.
+
+### Gerar relatório de cobertura
+
+```bash
+cd app
+npm run test -- --run --coverage
+```
+
+Exibe a tabela de cobertura por arquivo no terminal. O relatório completo em HTML é gerado em `app/coverage/index.html` — abra no navegador para ver linha a linha o que foi testado.
+
+### Cobertura atual
+
+| Módulo | Statements | Branches | Funções | Linhas |
+|---|---|---|---|---|
+| CartContext.jsx | 97% | 90% | 100% | 95% |
+| produtoService.js | 83% | 71% | 100% | 100% |
+| authService.js | 73% | 75% | 80% | 83% |
+| ToastContext.jsx | 81% | 82% | 67% | 92% |
+| **Total geral** | **35,81%** | **44,39%** | **38,19%** | **36,30%** |
+
+> A cobertura total é puxada para baixo pelas páginas administrativas (AdminDashboard, AdminProdutos) e pelo Blog, que dependem de integração real com o Supabase e não foram incluídas nos testes automatizados. Os módulos críticos de negócio (contextos e serviços) estão acima de 70%.
 
 ---
 
