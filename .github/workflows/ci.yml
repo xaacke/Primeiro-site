@@ -1,0 +1,35 @@
+name: CI — Testes Automatizados
+
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop, main]
+
+jobs:
+  testes:
+    name: Rodar bateria de testes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Instalar dependências
+        run: npm ci
+        working-directory: app
+
+      - name: Rodar testes
+        run: npm run test -- --run
+        working-directory: app
+
+      - name: Gerar relatório de cobertura
+        run: npm run test:coverage
+        working-directory: app
