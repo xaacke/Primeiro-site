@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: primeiro-site
+    ports:
+      - "8080:80"
+    restart: unless-stopped
