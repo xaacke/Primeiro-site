@@ -30,8 +30,8 @@ O projeto aplica o ciclo completo de reengenharia de software sobre um sistema l
 | 02 | Engenharia Reversa | ✅ Concluído |
 | 03 | Plano de Reengenharia | ✅ Concluído |
 | 04 | V&V e Testagem | ✅ Concluído |
-| 05 | Esteira de DevOps | 🔄 Em andamento |
-| 06 | Integração e Defesa | 🔜 Pendente |
+| 05 | Esteira de DevOps | ✅ Concluído |
+| 06 | Integração e Defesa | ✅ Concluído |
 
 ---
 
@@ -246,6 +246,50 @@ Acessa em: http://localhost:8080
 ```bash
 docker-compose up
 ```
+
+---
+
+## Checkpoint 06 — Integração e Defesa
+
+Consolidação final do projeto com demonstração do sistema estável e da esteira automatizada em pleno funcionamento.
+
+### O que foi entregue
+
+- Sistema modernizado rodando com React + Supabase (todos os requisitos R01-R09 atendidos)
+- Pipeline de CI passando com 56 testes verdes a cada push/PR
+- Containerização com Docker e docker-compose funcionando
+- Tag `v1.0.0` marcando a versão estável final do sistema
+- Tag `v0.0-legado` preservando o sistema original para comparação
+
+### Como demonstrar o sistema
+
+**Rodar localmente:**
+```bash
+cd app
+npm install
+npm run dev
+```
+Acessa em: http://localhost:5173
+
+**Rodar com Docker:**
+```bash
+docker-compose up
+```
+Acessa em: http://localhost:8080
+
+**Ver o pipeline CI:**
+Acessar [GitHub Actions](https://github.com/xaacke/Primeiro-site/actions) e confirmar último build verde.
+
+### Evolução do sistema
+
+| | Legado (`v0.0-legado`) | Modernizado (`v1.0.0`) |
+|---|---|---|
+| Tecnologia | HTML5 + CSS3 puro | React + Vite + Supabase |
+| Páginas | 2 páginas estáticas | 8 rotas dinâmicas |
+| Banco de dados | Nenhum | PostgreSQL (Supabase) |
+| Autenticação | Nenhuma | JWT com roles (cliente/admin) |
+| Testes | Nenhum | 56 casos automatizados |
+| CI/CD | Nenhum | GitHub Actions + Docker |
 
 ---
 
