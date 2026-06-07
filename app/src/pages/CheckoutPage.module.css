@@ -1,0 +1,425 @@
+/* Mobile-first */
+
+.page {
+  min-height: 100vh;
+  background-color: var(--color-bg-page);
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* ── Steps ── */
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: var(--spacing-md) 0;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.stepCircle {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.stepAtivo  { border-color: var(--color-primary); color: var(--color-primary); }
+.stepDone   { border-color: var(--color-success); background: var(--color-success); color: #fff; }
+
+.stepLabel {
+  display: none;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0 var(--spacing-xs);
+  white-space: nowrap;
+}
+
+.stepLabelAtivo { color: var(--color-primary); font-weight: var(--font-weight-bold); }
+
+.stepLinha {
+  width: 40px;
+  height: 2px;
+  background: var(--color-border);
+  margin: 0 var(--spacing-xs);
+  transition: background 0.2s;
+}
+
+.stepLinhaAtiva { background: var(--color-success); }
+
+/* ── Layout ── */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: stretch;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.cardTitulo {
+  font-size: 17px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+/* ── Form ── */
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.full  { width: 100%; }
+.flex2 { flex: 2; }
+
+.campo label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-bold);
+}
+
+.campo input, .campo select {
+  background: var(--color-bg-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.campo input:focus, .campo select:focus { border-color: var(--color-primary); }
+.campo input::placeholder { color: var(--color-text-muted); }
+
+.campo select option { background: #0f172b; }
+
+/* ── Botões ── */
+.btnAvancar {
+  background: var(--color-btn-bg);
+  border: none;
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family);
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: var(--spacing-xs);
+}
+
+.btnAvancar:hover:not(:disabled) { opacity: 0.85; }
+.btnAvancar:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.etapaAcoes {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-direction: column;
+  margin-top: var(--spacing-xs);
+}
+
+.btnVoltar {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  padding: 11px;
+  font-size: 14px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  width: 100%;
+}
+
+.btnVoltar:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+/* ── Pagamento ── */
+.pagamentos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.pagamentoOpcao {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.pagamentoOpcao input[type="radio"] { display: none; }
+
+.pagamentoOpcao:hover { border-color: var(--color-primary); }
+
+.pagamentoSelecionado {
+  border-color: var(--color-primary);
+  background: rgba(81, 162, 255, 0.08);
+}
+
+.pagamentoIcon { font-size: 22px; flex-shrink: 0; }
+
+.pagamentoLabel {
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.pagamentoDesc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* ── Pix ── */
+.pixBox {
+  background: var(--color-bg-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-align: center;
+}
+
+.pixQr {
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-border);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-sm);
+}
+
+.pixChave { font-size: 13px; color: var(--color-text-muted); }
+.pixChave strong { color: var(--color-primary); }
+.pixInfo { font-size: 12px; color: var(--color-text-muted); }
+
+/* ── Cartão ── */
+.cartaoForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  background: var(--color-bg-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+}
+
+.cartaoRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
+}
+
+/* ── Boleto ── */
+.boletoBox {
+  background: var(--color-bg-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.boletoAviso { color: var(--color-warning); }
+
+.erro {
+  color: var(--color-danger);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ── Resumo ── */
+.resumo {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  height: fit-content;
+}
+
+.resumoTitulo {
+  font-size: 15px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.resumoItens {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resumoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.resumoNome { flex: 1; }
+.resumoQtd { color: var(--color-primary); font-weight: 700; }
+
+.resumoLinha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.gratis { color: #4ade80; }
+
+.resumoTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--spacing-sm);
+}
+
+/* ── Sucesso ── */
+.sucesso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-md);
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.sucessoIcone { font-size: 56px; }
+
+.sucessoTitulo {
+  font-size: 24px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.numeroPedido {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.numeroPedido span { font-size: 12px; color: var(--color-text-muted); }
+.numeroPedido strong { font-size: 22px; color: var(--color-primary); letter-spacing: 0.05em; }
+
+.sucessoMsg {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.sucessoAcoes { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; justify-content: center; }
+
+.btnShop {
+  background: var(--color-btn-bg);
+  border: none;
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btnShop:hover { opacity: 0.85; }
+
+/* ── Tablet (≥ 640px) ── */
+@media (min-width: 640px) {
+  .stepLabel { display: block; }
+  .stepLinha { width: 60px; }
+
+  .layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .card { flex: 1; }
+  .resumo { width: 280px; flex-shrink: 0; }
+
+  .etapaAcoes { flex-direction: row; justify-content: space-between; }
+  .btnVoltar { width: auto; }
+  .btnAvancar { width: auto; flex: 1; }
+
+  .formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .full  { grid-column: 1 / -1; }
+  .flex2 { grid-column: 1 / -1; }
+}

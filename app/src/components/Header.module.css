@@ -1,0 +1,106 @@
+.header {
+  background: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-md) var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.logoIcon {
+  font-size: 28px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logoTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logoSub {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.navLink {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-base);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+}
+
+.navLinkActive {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  padding: 6px 12px;
+  background: var(--color-btn-bg);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.userName {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.userRole {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.sairBtn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  padding: 4px 12px;
+  font-size: var(--font-size-sm);
+  transition: color 0.2s;
+}
+
+.sairBtn:hover {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}

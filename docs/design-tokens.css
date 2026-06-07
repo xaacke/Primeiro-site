@@ -1,0 +1,52 @@
+/* Design Tokens — TechStock (extraídos do Figma SGM Versão 1) */
+
+:root {
+  /* Cores de fundo */
+  --color-bg-page:        #0F172B;
+  --color-bg-card:        rgba(15, 23, 43, 0.8);
+  --color-bg-card-light:  rgba(15, 23, 43, 0.5);
+
+  /* Bordas */
+  --color-border:         rgba(49, 65, 88, 0.5);
+  --color-border-input:   rgba(0, 122, 255, 0.6);
+
+  /* Cores primárias */
+  --color-primary:        #51A2FF;
+  --color-secondary:      #C27AFF;
+  --color-btn-bg:         rgba(81, 162, 255, 0.65);
+
+  /* Gradiente (título e destaques) */
+  --gradient-primary: linear-gradient(90deg, #51A2FF 0%, #C27AFF 100%);
+
+  /* Texto */
+  --color-text-primary:   #FFFFFF;
+  --color-text-muted:     rgba(255, 255, 255, 0.5);
+
+  /* Status */
+  --color-success:        #22C55E;
+  --color-warning:        #F59E0B;
+  --color-danger:         #EF4444;
+
+  /* Bordas arredondadas */
+  --radius-sm:   8px;
+  --radius-md:   14px;
+
+  /* Sombras */
+  --shadow-card: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Tipografia */
+  --font-family: 'Inter', sans-serif;
+  --font-size-sm:    12px;
+  --font-size-base:  14px;
+  --font-size-lg:    18px;
+  --font-size-xl:    30px;
+  --font-weight-regular: 400;
+  --font-weight-bold:    700;
+
+  /* Espaçamentos */
+  --spacing-xs:  8px;
+  --spacing-sm:  12px;
+  --spacing-md:  16px;
+  --spacing-lg:  24px;
+  --spacing-xl:  32px;
+}
